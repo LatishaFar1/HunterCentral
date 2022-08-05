@@ -46,18 +46,18 @@
         <!-- Add text indicating that we've changed color OR had an error -->
         {{#if monster}}
           <p class="monster-info">
-          
+            Now available in
             <b>{{monster}}</b>!
           </p>
         {{/if}}
 
         {{#if monsterError}}
-          <p class="monster-info">
+          <p class="color-info">
 
-            <!-- The server script passes monsterError if the user submission can't be matched -->
+            <!-- The server script passes colorError if the user submission can't be matched -->
             Hmm. Couldn't find
             <b>"{{monsterError}}"</b>.
-            <a href="?randomize=go">Try another monster?</a>
+            <a href="?randomize=go">Try a random color?</a>
           </p>
         {{/if}}
 
