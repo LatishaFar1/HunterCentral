@@ -76,7 +76,7 @@
             {{/unless}}
           {{/unless}}
 
-          <!-- The "What's your favorite color?" form sends a POST request to the server
+          <!-- The "Search a monster" form sends a POST request to the server
                Check server.js to see how it works -->
           <form class="monster-search" method="post">
             <label for="monster">
@@ -87,7 +87,7 @@
               {{else}}
                 Search a Monster<br />
               {{/if}}
-              <input id="color" name="color" required="required" type="text" />
+              <input id="monster" name="monster" required="required" type="text" />
             </label>
 
             <!-- If the user submits a value through the form 
@@ -112,13 +112,15 @@
         <!-- Instructions on using this project -->
         <div class="instructions">
           <h2>
-            Using this project
+            Using this page
           </h2>
           <p>
-            This is the Glitch
-            <strong>Hello Node</strong>
-            project. You can use it to build your own app. Check out README.md
-            in the editor for more info and next steps you can take!
+            Welcome to
+            <strong>Hunter Central</strong>
+            You can use it to search up how to kill any monsters that may be
+            terrorizing your neighborhood. 
+           <br/> 
+            <strong>Hunt responsibly!</strong>
           </p>
         </div>
 

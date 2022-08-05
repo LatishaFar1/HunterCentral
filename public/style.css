@@ -147,27 +147,27 @@ p {
   margin-top: 1rem;
 }
 
-/* Styles for our custom color form and its results */
-.color-info {
+/* Styles for our custom monster form and its results */
+.monster-info {
   margin-left: 5px;
 }
-.color-search {
+.monster-search {
   margin-top: 3rem;
 }
-.color-form {
+.monster-form {
   width: 90%;
   max-width: 500px;
   margin-left: 5px;
 }
-.color-form a:not(.btn--remix) {
+.monster-form a:not(.btn--remix) {
   font-weight: bold;
   color: var(--color-text-main);
   margin-top: 8px;
 }
-.color-form button {
+.monster-form button {
   margin-top: 8px;
 }
-.color-form button:hover {
+.monster-form button:hover {
   cursor: pointer;
   box-shadow: -8px 4px 20px #9BE7D8;
 }

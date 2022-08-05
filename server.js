@@ -44,14 +44,14 @@ fastify.get("/", function (request, reply) {
   // params is an object we'll pass to our handlebars template
   let params = { seo: seo };
 
-  // If someone clicked the option for a random color it'll be passed in the querystring
+  // If someone clicked the option for a random monster  it'll be passed in the querystring
   if (request.query.randomize) {
-    // We need to load our color data file, pick one at random, and add it to the params
+    // We need to load our monster data file, pick one at random, and add it to the params
     const monsters = require("./src/monsters.json");
     const allMonsters = Object.keys(monsters);
     let currentMonster = allMonsters[(allMonsters.length * Math.random()) << 0];
 
-    // Add the color properties to the params object
+    // Add the monster properties to the params object
     params = {
      monster: monsters[currentMonster],
       monsterError: null,
@@ -79,13 +79,13 @@ fastify.post("/", function (request, reply) {
   if (monster) {
     // ADD CODE FROM TODO HERE TO SAVE SUBMITTED FAVORITES
 
-    // Load our color data file
+    // Load our monster data file
     const monsters = require("./src/monsters.json");
 
     // Take our form submission, remove whitespace, and convert to lowercase
     monster = monster.toLowerCase().replace(/\s/g, "");
 
-    // Now we see if that color is a key in our colors object
+    // Now we see if that monster is a key in our monsters object
     if (monsters[monster]) {
       // Found one!
       params = {
@@ -94,7 +94,7 @@ fastify.post("/", function (request, reply) {
         seo: seo,
       };
     } else {
-      // No luck! Return the user value as the error property
+      // Return the user value as the error property
       params = {
         monsterError: request.body.monster,
         seo: seo,
@@ -102,7 +102,7 @@ fastify.post("/", function (request, reply) {
     }
   }
 
-  // The Handlebars template will use the parameter values to update the page with the chosen color
+  // The Handlebars template will use the parameter values to update the page with the chosen monster info
   return reply.view("/src/pages/index.hbs", params);
 });
 
