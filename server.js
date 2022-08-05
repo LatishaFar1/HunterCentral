@@ -73,7 +73,7 @@ fastify.post("/", function (request, reply) {
   let params = { seo: seo };
 
   // If the user submitted a monster through the form it'll be passed here in the request body
-  let monster = request.body.color;
+  let monster = request.body.monster;
 
   // If it's not empty, let's try to find the monster
   if (monster) {
