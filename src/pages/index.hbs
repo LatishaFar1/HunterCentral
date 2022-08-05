@@ -31,8 +31,8 @@
     {{#if monster}}
       <!-- If there is a color value, update the style for the page title -->
       <style>
-        .title { color:
-        {{color}}; }
+        .title { monster:
+        {{monster}}; }
       </style>
     {{/if}}
   </head>
@@ -44,28 +44,28 @@
         <h1 class="title">Hello Hunters!</h1>
 
         <!-- Add text indicating that we've changed color OR had an error -->
-        {{#if color}}
-          <p class="color-info">
+        {{#if monster}}
+          <p class="monster-info">
             Now available in
-            <b>{{color}}</b>!
+            <b>{{monster}}</b>!
           </p>
         {{/if}}
 
-        {{#if colorError}}
+        {{#if monsterError}}
           <p class="color-info">
 
             <!-- The server script passes colorError if the user submission can't be matched -->
             Hmm. Couldn't find
-            <b>"{{colorError}}"</b>.
+            <b>"{{monsterError}}"</b>.
             <a href="?randomize=go">Try a random color?</a>
           </p>
         {{/if}}
 
-        <div class="color-form">
+        <div class="monster-form">
 
           <!-- Our default paragraph/message -->
-          {{#unless colorError}}
-            {{#unless color}}
+          {{#unless monsterError}}
+            {{#unless monster}}
 
               <!-- There are fancier ways to do this, 
                  but nesting two "#unless" statements sets up an 
@@ -78,12 +78,12 @@
 
           <!-- The "What's your favorite color?" form sends a POST request to the server
                Check server.js to see how it works -->
-          <form class="color-search" method="post">
-            <label for="color">
+          <form class="monster-search" method="post">
+            <label for="monster">
 
               <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
-              {{#if color}}
-                Try another color?<br />
+              {{#if monster}}
+                Try another monster?<br />
               {{else}}
                 Search a Monster<br />
               {{/if}}
@@ -128,7 +128,7 @@
     <footer class="footer">
       <div class="links"></div>
       <a href="https://github.com/LatishaFar1">
-          <img
+        <img
           src="https://cdn.glitch.global/edbe1c48-8de3-4c49-83b3-ade46dbeceee/e684a6d6-f90e-40ac-b1e7-592bb3887119.image.png?v=1659665714241"
           alt="blog icon"
           class="illustration"
@@ -136,7 +136,7 @@
       </a>
 
       <a href="mailto:lfaroul14@gmail.com">
-          <img
+        <img
           src="https://cdn.glitch.global/edbe1c48-8de3-4c49-83b3-ade46dbeceee/email.png?v=1659665356426"
           alt="blog icon"
           class="illustration"
@@ -144,7 +144,7 @@
       </a>
 
       <a href="https://www.linkedin.com/in/latisha-faroul/">
-         <img
+        <img
           src="https://cdn.glitch.global/edbe1c48-8de3-4c49-83b3-ade46dbeceee/d8edc259-0fd9-4812-a9a8-7ac9631c2b0f.image.png?v=1659665765881"
           alt="blog icon"
           class="illustration"
@@ -152,7 +152,7 @@
       </a>
 
       <a href="https://twitter.com/TishFaroul">
-          <img
+        <img
           src="https://cdn.glitch.global/edbe1c48-8de3-4c49-83b3-ade46dbeceee/8d2f9271-2183-4af5-89bb-2b02997ace06.image.png?v=1659665812879"
           alt="blog icon"
           class="illustration"
@@ -168,7 +168,7 @@
       </a>
 
       <a href="https://www.instagram.com/tish.codes/">
-          <img
+        <img
           src="https://cdn-icons.flaticon.com/png/512/717/premium/717392.png?token=exp=1659666736~hmac=445385f31cdd398486b16ccf0a6525eb"
           alt="blog icon"
           class="illustration"

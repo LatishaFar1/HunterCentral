@@ -47,14 +47,14 @@ fastify.get("/", function (request, reply) {
   // If someone clicked the option for a random color it'll be passed in the querystring
   if (request.query.randomize) {
     // We need to load our color data file, pick one at random, and add it to the params
-    const colors = require("./src/colors.json");
-    const allColors = Object.keys(colors);
-    let currentColor = allColors[(allColors.length * Math.random()) << 0];
+    const monsters = require("./src/monsters.json");
+    const allMonsters = Object.keys(monsters);
+    let currentMonster = allMonsters[(allMonsters.length * Math.random()) << 0];
 
     // Add the color properties to the params object
     params = {
-      color: colors[currentColor],
-      colorError: null,
+     monster: monsters[currentMonster],
+      monsterError: null,
       seo: seo,
     };
   }
@@ -72,31 +72,31 @@ fastify.post("/", function (request, reply) {
   // Build the params object to pass to the template
   let params = { seo: seo };
 
-  // If the user submitted a color through the form it'll be passed here in the request body
-  let color = request.body.color;
+  // If the user submitted a monster through the form it'll be passed here in the request body
+  let monster = request.body.color;
 
-  // If it's not empty, let's try to find the color
-  if (color) {
+  // If it's not empty, let's try to find the monster
+  if (monster) {
     // ADD CODE FROM TODO HERE TO SAVE SUBMITTED FAVORITES
 
     // Load our color data file
-    const colors = require("./src/colors.json");
+    const monsters = require("./src/monsters.json");
 
     // Take our form submission, remove whitespace, and convert to lowercase
-    color = color.toLowerCase().replace(/\s/g, "");
+    monster = monster.toLowerCase().replace(/\s/g, "");
 
     // Now we see if that color is a key in our colors object
-    if (colors[color]) {
+    if (monsters[monster]) {
       // Found one!
       params = {
-        color: colors[color],
-        colorError: null,
+        monster: monsters[monster],
+        monsterError: null,
         seo: seo,
       };
     } else {
       // No luck! Return the user value as the error property
       params = {
-        colorError: request.body.color,
+        monsterError: request.body.monster,
         seo: seo,
       };
     }
