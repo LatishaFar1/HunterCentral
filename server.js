@@ -53,7 +53,7 @@ fastify.get("/", function (request, reply) {
 
     // Add the monster properties to the params object
     params = {
-     monster: monsters[currentMonster],
+      monster: monsters[currentMonster],
       monsterError: null,
       seo: seo,
     };
