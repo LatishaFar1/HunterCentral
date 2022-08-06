@@ -1,12 +1,6 @@
 <html lang="en">
   <head>
 
-    <!-- 
-      This is the main Handlebars template for the site 
-      - When the user visits the homepage or submits a color the app calls the endpoints in server.js
-      - The server script passes data in here and the Handlebars code builds it into the HTML page
-    -->
-
     <meta charset="utf-8" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,15 +20,7 @@
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
 
-    <!-- This is a handlebars IF statement
-         Checking for a custom "color" parameter from server.js -->
-    {{#if monster}}
-      <!-- If there is a color value, update the style for the page title -->
-      <style>
-        .title { monster:
-        {{monster}}; }
-      </style>
-    {{/if}}
+
   </head>
   <body>
     <div class="wrapper">
@@ -43,21 +29,33 @@
         <!-- This is the start of content for our page -->
         <h1 class="title">Hello Hunters!</h1>
 
-        <!-- Add text indicating that we've changed color OR had an error -->
-        {{#if monster}}
+        
+            <!-- This is a handlebars IF statement
+         Checking for a custom "name" parameter from server.js -->
+    {{#if monster}}
+      <!-- If there is a monster value, update the p tag for the page with how to defeat the monster-->
+      <p>
+       {{monster}}
+    
+      </p>
+    {{/if}}
+        
+        
+        <!-- Add text indicating that we've changed monster OR had an error -->
+<!--         {{#if monster}}
           <p class="monster-info">
-            Now available in
+            Some monsters:
             <b>{{monster}}</b>!
           </p>
-        {{/if}}
+        {{/if}} -->
 
         {{#if monsterError}}
-          <p class="color-info">
+          <p class="monster-info">
 
-            <!-- The server script passes colorError if the user submission can't be matched -->
-            Hmm. Couldn't find
+            <!-- The server script passes monsterError if the user submission can't be matched -->
+            Hmm. Looks like we don't know how to defeat that monster
             <b>"{{monsterError}}"</b>.
-            <a href="?randomize=go">Try a random color?</a>
+            <a href="?randomize=go">Try a random tactic that's defeated something else?</a>
           </p>
         {{/if}}
 
@@ -87,7 +85,12 @@
               {{else}}
                 Search a Monster<br />
               {{/if}}
-              <input id="monster" name="monster" required="required" type="text" />
+              <input
+                id="monster"
+                name="monster"
+                required="required"
+                type="text"
+              />
             </label>
 
             <!-- If the user submits a value through the form 
@@ -97,8 +100,8 @@
 
           <!-- This randomize link communicates with the server (server.js) 
                using a querystring and GET request instead of a form POST -->
-          Can't decide?
-          <a href="?randomize=go">Find a random monster</a>
+          No luck?
+          <a href="?randomize=go">Try a random way to kill your monster</a>
         </div>
 
         <div class="illo-container">
@@ -118,8 +121,8 @@
             Welcome to
             <strong>Hunter Central</strong>
             You can use it to search up how to kill any monsters that may be
-            terrorizing your neighborhood. 
-           <br/> 
+            terrorizing your neighborhood.
+            <br />
             <strong>Hunt responsibly!</strong>
           </p>
         </div>

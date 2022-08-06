@@ -53,7 +53,7 @@ fastify.get("/", function (request, reply) {
 
     // Add the monster properties to the params object
     params = {
-     monster: monsters[currentMonster],
+      monster: monsters[currentMonster],
       monsterError: null,
       seo: seo,
     };
@@ -73,7 +73,7 @@ fastify.post("/", function (request, reply) {
   let params = { seo: seo };
 
   // If the user submitted a monster through the form it'll be passed here in the request body
-  let monster = request.body.color;
+  let monster = request.body.monster;
 
   // If it's not empty, let's try to find the monster
   if (monster) {
@@ -118,3 +118,33 @@ fastify.listen(
     fastify.log.info(`server listening on ${address}`);
   }
 );
+
+
+// NEW MONSTER PAGE ROUTE
+
+/**
+
+ * Returns src/pages/newMonster.hbs with data built into it
+ */
+fastify.get("/newMonster", function (request, reply) {
+  // params is an object we'll pass to our handlebars template
+  let params = { seo: seo };
+
+//   // If someone clicked the option for a random monster  it'll be passed in the querystring
+//   if (request.query.randomize) {
+//     // We need to load our monster data file, pick one at random, and add it to the params
+//     const newMonsters = require("./src/monsters.json");
+//     const allMonsters = Object.keys(monsters);
+//     let currentMonster = allMonsters[(allMonsters.length * Math.random()) << 0];
+
+//     // Add the monster properties to the params object
+//     params = {
+//       monster: monsters[currentMonster],
+//       monsterError: null,
+//       seo: seo,
+//     };
+//   }
+
+  // The Handlebars code will be able to access the parameter values and build them into the page
+  return reply.view("/src/pages/newMonster.hbs", params);
+});
