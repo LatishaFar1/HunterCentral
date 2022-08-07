@@ -130,21 +130,21 @@ fastify.get("/newMonster", function (request, reply) {
   // params is an object we'll pass to our handlebars template
   let params = { seo: seo };
 
-//   // If someone clicked the option for a random monster  it'll be passed in the querystring
-//   if (request.query.randomize) {
-//     // We need to load our monster data file, pick one at random, and add it to the params
-//     const newMonsters = require("./src/monsters.json");
-//     const allMonsters = Object.keys(monsters);
-//     let currentMonster = allMonsters[(allMonsters.length * Math.random()) << 0];
-
-//     // Add the monster properties to the params object
-//     params = {
-//       monster: monsters[currentMonster],
-//       monsterError: null,
-//       seo: seo,
-//     };
-//   }
 
   // The Handlebars code will be able to access the parameter values and build them into the page
   return reply.view("/src/pages/newMonster.hbs", params);
 });
+
+
+
+/**
+ * Our POST route to handle and react to form submissions for new Monsters
+ *
+ * Accepts body data indicating the user choice
+ */
+fastify.post('/newMonster', function (request, reply) {
+
+  let params = { seo: seo };
+  console.log(" new monster added")
+ 
+})
